@@ -1,11 +1,22 @@
+/*liniear gradiant color : #7b84e6 ,#ff5c5c */
 * {
-  font-family: "Source Sans Pro", sans-serif;
-  color: rgb(48, 46, 46);
-  line-height: 1, 75;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
-  margin: 0 8 0 8;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  color: rgb(48, 46, 46);
+  line-height: 1, 75;
+  padding: 25px;
+}
+a {
+  color: #1a1818;
 }
 p {
   margin: 0px;
@@ -19,9 +30,9 @@ h1 h2 h3 h4 h5 {
   margin: 10px;
 }
 a:hover {
-  color: #ff5c5c;
+  color: #fff;
 }
-.header .logo {
+header .logo {
   width: 100px;
   height: 50px;
   padding-left: 15px;
@@ -30,9 +41,15 @@ a:hover {
 #default-nav {
   display: flex;
   justify-content: space-between;
-  background-color: #7b84e6c7;
   font-family: "Cabin", sans-serif;
-  font-weight: bold;
+  align-content: center;
+  background: linear-gradient(to right, #7b84e6, #ff5c5c);
+  text-align: center;
+  align-items: center;
+  padding-right: 30px;
+  z-index: 1;
+  box-shadow: 3px 3px 6px 0px #ccdbe8 inset,
+    -3px -3px 6px 1px rgba(255, 255, 255, 0.5) inset;
 }
 .nav {
   list-style: none;
@@ -49,46 +66,75 @@ a {
 .mobile-nav {
   display: none;
 }
-.bgImage {
+.background {
+  position: relative;
   background-size: cover;
   background-image: url(/bg.jpg);
-  background-repeat: no-repeat;
-  z-index: -1;
-  width: 100%;
-  height: 80vh;
+  height: 95vh;
   object-fit: cover;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  display: flex;
+  background-position: top;
 }
-h1 {
-  font-size: 44px;
+.text-box {
   position: absolute;
-  right: 0px;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #ff5c5cbe, #7b84e6be);
+
+  top: 50%;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, -60%);
 }
 #head-line {
-  background-color: #8994a38a;
-  padding: 5px;
-  border-radius: 2rem;
-  line-height: 0;
+  color: #f7f7f7;
+  text-transform: uppercase;
   text-align: center;
 }
 #main-hl {
-  font-size: 4vw;
-  color: #f7f7f7;
-  text-align: justify;
-  word-wrap: normal;
+  display: block;
+  font-size: 44px;
+  font-weight: 600;
 }
 #sub-hl {
-  font-size: 3vw;
-  color: #f7f7f7;
-  text-align: center;
+  display: block;
+  font-size: 24px;
+  font-weight: 300;
 }
+footer {
+  bottom: 0em;
+}
+@media (max-width: 320px) {
+  .text-box {
+    position: absolute;
+    text-transform: uppercase;
+    top: 50%;
+    width: 100%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+  }
+  #head-line {
+    color: #f7f7f7;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  #main-hl {
+    display: block;
+    font-size: 28px;
+    font-weight: 600;
+  }
+  #sub-hl {
+    display: block;
+    font-size: 16px;
+    font-weight: 200;
+  }
+  #hyundai {
+    padding: 0 0 15 0;
+  }
+}
+
 .h2 {
   justify-content: center;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Cabin", sans-serif;
   font-size: 3vw;
   background-image: linear-gradient(to right, #ff5c5c, #7b84e6);
   -webkit-background-clip: text;
@@ -120,6 +166,7 @@ h1 {
   align-items: center;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   margin-bottom: 2rem;
+  justify-content: space-evenly;
 }
 .imgVehicule {
   width: 100%;
@@ -135,10 +182,23 @@ h1 {
 .voirPlus {
   width: 30%;
   height: 10%;
-  background-color: #ff5c5c;
   border-radius: 10px;
   margin-top: 5px;
-  border-style: none;
+  padding: 5px;
+  --c: #ff5c5c;
+  color: var(--c);
+  font-size: 16px;
+  border: 0.3em solid var(--c);
+  border-radius: 0.5em;
+  font-weight: bold;
+  font-family: "Cabin", sans-serif;
+  letter-spacing: 0.5px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: 0.5s;
+  margin: 1em;
 }
 .voirPlus :hover {
   color: #f7f7f7;
@@ -146,14 +206,15 @@ h1 {
 .footer {
   width: 100%;
   height: max-content;
-  background-color: #7b84e6;
+  background-image: linear-gradient(to right, #ff5c5c, #7b84e6);
   align-items: center;
   padding: 5px;
   flex-wrap: wrap;
   gap: 5px;
   display: flex;
   justify-content: space-evenly;
-  box-shadow: 3px 3px 6px 0px #CCDBE8 inset, -3px -3px 6px 1px rgba(255,255,255,0.5) inset;
+  box-shadow: 3px 3px 6px 0px #ccdbe8 inset,
+    -3px -3px 6px 1px rgba(255, 255, 255, 0.5) inset;
 }
 .footer p {
   font-size: 14px;
@@ -174,6 +235,8 @@ h1 {
   display: flex;
   justify-content: space-between;
   gap: 15px;
+  color: #1a1818;
+  font-weight: 400;
 }
 @media screen and (max-width: 530px) {
   .icons {
@@ -184,11 +247,18 @@ h1 {
   .footer {
     flex-direction: row;
   }
+  .header {
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }
 @media screen and (max-width: 402px) {
   .icons {
     display: flex;
     flex-direction: row;
+  }
+  .slogan {
+    display: none;
   }
 }
 .marque {
@@ -233,12 +303,15 @@ h1 {
 
 /* Mobile menu navigation */
 @media screen and (max-width: 768px) {
+  body {
+    padding: 5px;
+  }
   .mobile-nav {
     display: flex;
     justify-content: space-between;
   }
-  .up{
-      display: none;
+  .up {
+    display: none;
   }
   #default-nav {
     display: none;
@@ -253,6 +326,15 @@ h1 {
     z-index: 1;
     -webkit-user-select: none;
     user-select: none;
+  }
+  .slogan {
+    text-align: center;
+    line-height: 1;
+    padding-top: 15px;
+    letter-spacing: 3px;
+  }
+  .h2 {
+    font-size: 5vw;
   }
 
   #menuToggle input {
@@ -321,7 +403,7 @@ h1 {
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
   nav {
-    background-color: #7b84e6d5;
+    background: linear-gradient(to right, #ff5c5c, #7b84e6);
     height: 65px;
   }
 
@@ -338,15 +420,13 @@ h1 {
     height: 45px;
     margin: 10px 5px 0 0;
   }
-  .auto {
-    font-family: "Cabin", sans-serif;
-    font-size: 33px;
-    text-align: center;
-  }
+  .auto,
   .location {
-    font-family: "Cabin", sans-serif;
-    font-size: 12px;
-    text-align: center;
-    color: #ff5c5c;
+    display: none;
   }
+}
+button {
+  font-family: "Cabin", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
 }
